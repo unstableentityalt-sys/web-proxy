@@ -8,149 +8,297 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      min-height: 100vh;
-      background: #0f0f1a;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: #e0e0e0;
-      padding: 20px;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e8c;
+      color: white;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    }
+
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+    header span { font-size: 13px; opacity: .75; }
+
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 0 24px;
+      display: flex;
+      gap: 0;
+    }
+
+    nav a {
+      padding: 12px 18px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+      border-bottom: 3px solid transparent;
+      transition: all .15s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #2c3e8c;
+      border-bottom-color: #2c3e8c;
+    }
+
+    .main {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
 
     .card {
-      width: 100%;
-      max-width: 560px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    }
+
+    .card h2 {
+      font-size: 16px;
+      color: #2c3e8c;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .calc-display {
       background: #1a1a2e;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 8px 40px rgba(0,0,0,.5);
+      color: #7eb8f7;
+      font-family: 'Courier New', monospace;
+      font-size: 22px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      text-align: right;
+      margin-bottom: 12px;
+      min-height: 52px;
+      word-break: break-all;
     }
 
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, #7eb8f7, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
     }
 
-    p.subtitle {
-      color: #888;
-      font-size: 14px;
-      margin-bottom: 28px;
+    .btn {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: opacity .15s;
+      font-weight: 500;
+    }
+    .btn:hover { opacity: .85; }
+    .btn-num { background: #f0f2f7; color: #333; }
+    .btn-op { background: #dce4ff; color: #2c3e8c; }
+    .btn-eq { background: #2c3e8c; color: white; }
+    .btn-clr { background: #ffe0e0; color: #c00; }
+
+    .search-section {
+      grid-column: 1 / -1;
     }
 
-    .input-row {
+    .search-bar {
       display: flex;
       gap: 10px;
+      margin-bottom: 16px;
     }
 
-    input[type="url"] {
+    .search-bar input {
       flex: 1;
-      padding: 12px 16px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      background: #0f0f1a;
-      color: #e0e0e0;
+      padding: 11px 16px;
+      border: 1px solid #d0d0d0;
+      border-radius: 8px;
       font-size: 15px;
       outline: none;
       transition: border-color .2s;
     }
 
-    input[type="url"]:focus {
-      border-color: #7eb8f7;
-    }
+    .search-bar input:focus { border-color: #2c3e8c; }
 
-    button {
-      padding: 12px 22px;
-      border-radius: 10px;
+    .search-bar button {
+      padding: 11px 24px;
+      background: #2c3e8c;
+      color: white;
       border: none;
-      background: linear-gradient(135deg, #5b9cf6, #7c3aed);
-      color: #fff;
+      border-radius: 8px;
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
       transition: opacity .2s;
-      white-space: nowrap;
     }
 
-    button:hover { opacity: .85; }
+    .search-bar button:hover { opacity: .85; }
 
-    .note {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .quick-links {
-      margin-top: 28px;
-      border-top: 1px solid #252540;
-      padding-top: 20px;
-    }
-
-    .quick-links p {
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-
+    .quick-links p { font-size: 13px; color: #888; margin-bottom: 10px; }
     .quick-links a {
       display: inline-block;
       margin: 4px 6px 4px 0;
-      padding: 5px 12px;
+      padding: 5px 14px;
+      background: #eef1ff;
+      color: #2c3e8c;
       border-radius: 20px;
-      background: #252540;
+      font-size: 13px;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .quick-links a:hover { background: #dce4ff; }
+
+    .formula-list { list-style: none; }
+    .formula-list li {
+      padding: 9px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .formula-list li:last-child { border: none; }
+    .formula-list .formula { font-family: 'Courier New', monospace; color: #2c3e8c; font-size: 13px; }
+
+    footer {
+      text-align: center;
+      padding: 24px;
       color: #aaa;
       font-size: 12px;
-      text-decoration: none;
-      transition: background .2s;
-    }
-
-    .quick-links a:hover {
-      background: #333360;
-      color: #e0e0e0;
+      margin-top: 16px;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Web Proxy</h1>
-    <p class="subtitle">Browse websites anonymously through this proxy.</p>
 
-    <form id="proxyForm" onsubmit="navigate(event)">
-      <div class="input-row">
-        <input
-          type="text"
-          id="urlInput"
-          placeholder="https://example.com"
-          autocomplete="off"
-          spellcheck="false"
-        />
-        <button type="submit">Go</button>
+  <header>
+    <div>
+      <h1>Algebra Tools</h1>
+      <span>Calculator &amp; Study Resources</span>
+    </div>
+  </header>
+
+  <nav>
+    <a href="/" class="active">Calculator</a>
+    <a href="#" onclick="return false">Equation Solver</a>
+    <a href="#" onclick="return false">Graphing</a>
+    <a href="#" onclick="return false">Formulas</a>
+    <a href="#" onclick="searchMode()">Web Search</a>
+  </nav>
+
+  <div class="main">
+
+    <!-- Calculator -->
+    <div class="card">
+      <h2>Scientific Calculator</h2>
+      <div class="calc-display" id="display">0</div>
+      <div class="calc-grid">
+        <button class="btn btn-clr" onclick="clearCalc()">AC</button>
+        <button class="btn btn-op" onclick="appendCalc('(')">(</button>
+        <button class="btn btn-op" onclick="appendCalc(')')">)</button>
+        <button class="btn btn-op" onclick="appendCalc('/')">÷</button>
+
+        <button class="btn btn-num" onclick="appendCalc('7')">7</button>
+        <button class="btn btn-num" onclick="appendCalc('8')">8</button>
+        <button class="btn btn-num" onclick="appendCalc('9')">9</button>
+        <button class="btn btn-op" onclick="appendCalc('*')">×</button>
+
+        <button class="btn btn-num" onclick="appendCalc('4')">4</button>
+        <button class="btn btn-num" onclick="appendCalc('5')">5</button>
+        <button class="btn btn-num" onclick="appendCalc('6')">6</button>
+        <button class="btn btn-op" onclick="appendCalc('-')">−</button>
+
+        <button class="btn btn-num" onclick="appendCalc('1')">1</button>
+        <button class="btn btn-num" onclick="appendCalc('2')">2</button>
+        <button class="btn btn-num" onclick="appendCalc('3')">3</button>
+        <button class="btn btn-op" onclick="appendCalc('+')">+</button>
+
+        <button class="btn btn-num" onclick="appendCalc('0')" style="grid-column:span 2">0</button>
+        <button class="btn btn-num" onclick="appendCalc('.')">.</button>
+        <button class="btn btn-eq" onclick="calculateResult()">=</button>
       </div>
-    </form>
-
-    <div class="quick-links">
-      <p>Quick links</p>
-      <a href="#" onclick="go('https://wikipedia.org')">Wikipedia</a>
-      <a href="#" onclick="go('https://news.ycombinator.com')">Hacker News</a>
-      <a href="#" onclick="go('https://reddit.com')">Reddit</a>
-      <a href="#" onclick="go('https://github.com')">GitHub</a>
     </div>
 
-    <p class="note">
-      Note: Some sites with strict CSP headers or heavy JavaScript may not render correctly.
-    </p>
+    <!-- Formulas -->
+    <div class="card">
+      <h2>Common Algebra Formulas</h2>
+      <ul class="formula-list">
+        <li><span>Quadratic Formula</span><span class="formula">x = (−b ± √(b²−4ac)) / 2a</span></li>
+        <li><span>Slope Formula</span><span class="formula">m = (y₂−y₁) / (x₂−x₁)</span></li>
+        <li><span>Distance Formula</span><span class="formula">d = √((x₂−x₁)² + (y₂−y₁)²)</span></li>
+        <li><span>Midpoint Formula</span><span class="formula">M = ((x₁+x₂)/2, (y₁+y₂)/2)</span></li>
+        <li><span>Pythagorean Theorem</span><span class="formula">a² + b² = c²</span></li>
+        <li><span>Slope-Intercept Form</span><span class="formula">y = mx + b</span></li>
+        <li><span>Point-Slope Form</span><span class="formula">y − y₁ = m(x − x₁)</span></li>
+      </ul>
+    </div>
+
+    <!-- Web Search -->
+    <div class="card search-section" id="webSearchCard" style="display:none">
+      <h2>Search the Web</h2>
+      <div class="search-bar">
+        <input type="text" id="urlInput" placeholder="Enter a website or search term..." autocomplete="off" spellcheck="false" />
+        <button onclick="navigate()">Go</button>
+      </div>
+      <div class="quick-links">
+        <p>Quick links</p>
+        <a href="#" onclick="go('https://wikipedia.org')">Wikipedia</a>
+        <a href="#" onclick="go('https://khanacademy.org')">Khan Academy</a>
+        <a href="#" onclick="go('https://wolframalpha.com')">Wolfram Alpha</a>
+        <a href="#" onclick="go('https://desmos.com')">Desmos</a>
+        <a href="#" onclick="go('https://mathway.com')">Mathway</a>
+      </div>
+    </div>
+
   </div>
 
+  <footer>Algebra Tools &mdash; Calculator &amp; Study Aid &copy; 2026</footer>
+
   <script>
-    function navigate(e) {
-      e.preventDefault();
+    let expr = '';
+
+    function updateDisplay(val) {
+      document.getElementById('display').textContent = val || '0';
+    }
+
+    function appendCalc(val) {
+      if (expr === '0' && val !== '.') expr = '';
+      expr += val;
+      updateDisplay(expr);
+    }
+
+    function clearCalc() {
+      expr = '';
+      updateDisplay('0');
+    }
+
+    function calculateResult() {
+      try {
+        const result = Function('"use strict"; return (' + expr + ')')();
+        expr = String(parseFloat(result.toFixed(10)));
+        updateDisplay(expr);
+      } catch {
+        updateDisplay('Error');
+        expr = '';
+      }
+    }
+
+    function searchMode() {
+      document.getElementById('webSearchCard').style.display = 'block';
+      document.getElementById('webSearchCard').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('urlInput').focus();
+    }
+
+    function navigate() {
       let url = document.getElementById('urlInput').value.trim();
+      if (!url) return;
       if (!url.startsWith('http://') && !url.startsWith('https://')) {
         url = 'https://' + url;
       }
@@ -160,6 +308,11 @@
     function go(url) {
       window.location.href = '/api/proxy?url=' + encodeURIComponent(url);
     }
+
+    document.getElementById('urlInput')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') navigate();
+    });
   </script>
+
 </body>
 </html>

@@ -31,7 +31,7 @@ function rewriteHtml(html, baseUrl) {
 
   $('body').prepend(`
     <div style="position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#1a1a2e;color:#eee;padding:8px 16px;font-family:sans-serif;font-size:13px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 8px rgba(0,0,0,.4)">
-      <strong style="white-space:nowrap">Web Proxy</strong>
+      <strong style="white-space:nowrap">Algebra Tools</strong>
       <span style="color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;font-size:12px">${baseUrl}</span>
       <a href="/" style="color:#7eb8f7;text-decoration:none;white-space:nowrap;font-size:13px">← Home</a>
     </div>
